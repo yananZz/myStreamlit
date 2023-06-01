@@ -1,7 +1,9 @@
 import streamlit as st
 import pandas as pd
 import numpy as np
+from langchain.llms import OpenAI
 from io import StringIO
+from langchain.document_loaders import PyPDFLoader
 
 st.title('Hello StreamLit')
 
@@ -54,6 +56,6 @@ if uploaded_file is not None:
     if st.checkbox('Show raw data'):
         st.subheader('Raw data')
         st.write(data)
-else:
-    st.write("请上传文件")
+# else:
+#     st.write("请上传文件")
 
