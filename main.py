@@ -35,7 +35,7 @@ if openai_api_key:
     chain = buildchain.load_chain(openai_api_key)
 
 if user_input and openai_api_key:
-    output = chain.run(human_input=user_input)
+    output = chain.predict(human_input=user_input)
     st.session_state.past.append(user_input)
     st.session_state.generated.append(output)
 
