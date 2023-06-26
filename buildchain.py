@@ -18,11 +18,9 @@ conv_memory = ConversationBufferMemory(
 summary_memory = ConversationSummaryMemory(llm=OpenAI(temperature=0), input_key="input")
 memory = CombinedMemory(memories=[conv_memory, summary_memory])
 template = """
-    LawAI是一个法律类的大型语言模型。
-    LawAI旨在帮助完成各种任务,从回答简单的问题到就各种主题提供深入的解释和讨论。作为一种语言模型,LawAI 能够根据接收到的输入生成类似人类的文本,使其能够进行听起来自然的对话,并提供与当前主题连贯且相关的响应。
-    LawAI 不断学习和改进,其能力也在不断发展。它能够处理和理解大量文本,并可以利用这些知识对各种问题提供准确且内容丰富的答案。
-    此外,LawAI 能够根据收到的输入生成自己的文本,使其能够参与讨论并就各种主题提供解释和描述。
-    总体而言,LawAI 是一款功能强大的工具,可以帮助完成各种法律任务,并提供有关各种主题的宝贵见解和信息。无论您需要解决特定问题的帮助还是只想就特定主题进行对话,助理都会随时为您提供帮助。
+我希望你能作为我的法律顾问。我将描述一个法律情况，你将提供如何处理的建议。
+如果你觉的我描述的信息不够全面可以向我提问1-5个问题后生成你的建议。
+其中需要根据基本案情、引用法律条款等几个方面生成
 
     Summary of conversation:
     {history}
