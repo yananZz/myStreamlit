@@ -2,16 +2,12 @@
 import streamlit as st
 from streamlit_chat import message
 import buildchain as buildchain
+from langchain.callbacks import get_openai_callback
 
 
-st.set_page_config(page_title="LawAI Demo", page_icon=":robot:")
-st.header("LawAI Demo")
+st.set_page_config(page_title="FaAI Demo", page_icon=":robot:")
+st.header("FaAI Demo")
 
-with st.sidebar:
-    openai_api_key = st.text_input(
-        "OpenAI API Key",
-        key="chatbot_api_key",
-    )
 
 if "generated" not in st.session_state:
     st.session_state["generated"] = []
@@ -27,19 +23,16 @@ with st.form("chat_input", clear_on_submit=True):
     )
     b.form_submit_button("Send", use_container_width=True)
 
-# user_input = get_text()
-if user_input and not openai_api_key:
-    st.info("Please add your OpenAI API key to continue.")
 
-if openai_api_key:
-    chain = buildchain.load_chain(openai_api_key)
+chain = buildchain.load_chain()
 
-if user_input and openai_api_key:
+if user_input:
     output = chain.run(input=user_input)
     st.session_state.past.append(user_input)
     st.session_state.generated.append(output)
 
 if st.session_state["generated"]:
+    # print(st.session_state["generated"])
     for i in range(len(st.session_state["generated"]) - 1, -1, -1):
         message(st.session_state["generated"][i], key=str(i))
         message(st.session_state["past"][i], is_user=True, key=str(i) + "_user")
