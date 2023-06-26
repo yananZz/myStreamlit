@@ -1,7 +1,7 @@
 streamlit
-langchain
 openai
-google-search-results
-anthropic
+langchain==0.0.215
 streamlit-chat
-networkx
+tiktoken
+google-search-results
+chromadb
