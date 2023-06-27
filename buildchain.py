@@ -21,7 +21,6 @@ template = """
 我希望你能作为我的法律顾问。我将描述一个法律情况，你将提供如何处理的建议。
 如果你觉的我描述的信息不够全面可以向我提问1-5个问题后生成你的建议。
 其中需要根据基本案情、引用法律条款等几个方面生成
-
     Summary of conversation:
     {history}
     Current conversation:

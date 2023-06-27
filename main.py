@@ -3,6 +3,7 @@ import streamlit as st
 from streamlit_chat import message
 import buildchain as buildchain
 from langchain.callbacks import get_openai_callback
+import simpleSequentiaChain as simpChain
 
 
 st.set_page_config(page_title="FaAI Demo", page_icon=":robot:")
@@ -24,11 +25,11 @@ with st.form("chat_input", clear_on_submit=True):
     b.form_submit_button("Send", use_container_width=True)
 
 
-chain = buildchain.load_chain()
+chain = simpChain.buildChain()
 
 if user_input:
     output = chain.run(input=user_input)
-    # print(output)
+    print(output)
     st.session_state.past.append(user_input)
     st.session_state.generated.append(output)
 
