@@ -1,6 +1,6 @@
 streamlit
 openai
-langchain==0.0.215
+langchain
 streamlit-chat
 tiktoken
 google-search-results
