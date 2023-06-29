@@ -52,7 +52,7 @@ class CAMELAgent:
 
 st.set_page_config(page_title="FaAI Demo", page_icon=":robot:")
 st.header("FaAI Demo")
-assistant_role_name = "律师顾问"
+assistant_role_name = "律师"
 user_role_name = "咨询客户"
 word_limit = 50
 
@@ -147,8 +147,6 @@ if user_input:
 
     assistant_msg = HumanMessage( content=(
         f"{user_input}. "
-        "现在开始一个一个的介绍。"
-        "仅回复指令和输入。"
     ))
     user_ai_msg = user_agent.step(assistant_msg)
     user_msg = HumanMessage(content=user_ai_msg.content)
